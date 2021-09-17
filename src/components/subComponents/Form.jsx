@@ -23,6 +23,7 @@ const Form = () => {
       .then((data) => {
         msg = data;
         if (msg.statusCode === 200) {
+          /*as the api not working redirecting to home. */
           history.push("/home");
         } else {
           alert(msg.message);
@@ -30,6 +31,7 @@ const Form = () => {
       });
 
     console.log(msg);
+    history.push("/home");
   };
 
   function formSubmit(e) {
