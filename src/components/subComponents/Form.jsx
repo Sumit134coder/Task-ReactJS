@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 const Form = () => {
   let [email, setemail] = useState("");
   let [password, setpassword] = useState("");
-  let [status, setStatus] = useState(0);
   const history = useHistory();
   let msg;
 
@@ -23,17 +22,14 @@ const Form = () => {
       .then((response) => response.json())
       .then((data) => {
         msg = data;
-        setStatus(data.statusCode);
+        if (msg.statusCode === 200) {
+          history.push("/home");
+        } else {
+          alert(msg.message);
+        }
       });
 
-    console.log("statuscode:", status);
     console.log(msg);
-
-    if (status === 200) {
-      history.push("/home");
-    } else {
-      alert(msg.message);
-    }
   };
 
   function formSubmit(e) {
