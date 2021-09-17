@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-around;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.Left-content {
+  width: 60%;
+}
+
+.Right-content {
+  width: 40%;
+  position: absolute;
+  top: 10;
+  background-color: red;
+}

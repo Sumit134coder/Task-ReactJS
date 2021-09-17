@@ -1,0 +1,39 @@
+input {
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: none;
+  width: 19.188rem;
+  height: 2rem;
+  background: #eef0f6;
+  padding: 18px 26px 18px 26px;
+}
+.right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.right-content h2,
+h3 {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background: #40bc95;
+  border-radius: 8px;
+  padding: 18px 26px;
+  width: 307px;
+  height: 55px;
+  border: none;
+}

@@ -1,0 +1,10 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar {
+  background: green;
+  border-radius: 50%;
+  height: fit-content;
+}
