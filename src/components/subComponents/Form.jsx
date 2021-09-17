@@ -29,7 +29,7 @@ const Form = () => {
     console.log("statuscode:", status);
     console.log(msg);
 
-    if (status === 400) {
+    if (status === 200) {
       history.push("/home");
     } else {
       alert(msg.message);
