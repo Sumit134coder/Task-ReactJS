@@ -14,9 +14,8 @@ const Home = () => {
         </div>
         <div className="sidebar-content">
           <p>
-            {" "}
             <AiFillHome />
-            home
+            Home
           </p>
         </div>
       </div>

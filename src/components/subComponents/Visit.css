@@ -1,0 +1,22 @@
+.link {
+  background: #40bc95;
+  text-decoration: none;
+  padding: 8px 30px;
+  color: #ffffff;
+  font-weight: 800;
+  border-radius: 8px;
+}
+.visit {
+  align-self: center;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 440px) {
+  p,
+  .link {
+    display: none;
+  }
+  .visit {
+    margin-bottom: 10px;
+  }
+}

@@ -1,22 +1,52 @@
 import "./Form.css";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Form = () => {
   let [email, setemail] = useState("");
   let [password, setpassword] = useState("");
+  let [status, setStatus] = useState(0);
+  const history = useHistory();
+  let msg;
 
-  const clickHandler = () => {
+  const clickHandler = async () => {
     console.log("email:", email);
     console.log("password:", password);
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email, password: password })
+    };
+
+    await fetch("https://dev-api.youthresourceapp.com/login", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        msg = data;
+        setStatus(data.statusCode);
+      });
+
+    console.log("statuscode:", status);
+    console.log(msg);
+
+    if (status === 400) {
+      history.push("/home");
+    } else {
+      alert(msg.message);
+    }
   };
+
+  function formSubmit(e) {
+    e.preventDefault();
+  }
 
   return (
     <div className="right-content">
       <h2>Welcome Back!</h2>
       <h3>Sign In to Get Started</h3>
-      <form>
+      <form onSubmit={formSubmit}>
         <input
-          type="email"
+          type="text"
           placeholder="Username"
           onChange={(e) => {
             setemail(e.target.value);
@@ -34,7 +64,9 @@ const Form = () => {
         </button>
       </form>
 
-      <a href="#">Forgot password</a>
+      <a href="#" className="primary">
+        Forgot password?
+      </a>
     </div>
   );
 };

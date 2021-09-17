@@ -1,11 +1,11 @@
 import Form from "./subComponents/Form";
-import Visit from "./subComponents/Visit";
 import "../components/Login.css";
+import Visit from "./subComponents/Visit";
 
 const Login = () => {
   return (
     <div className="container">
-      {/* <Visit /> */}
+      <Visit />
       <Form />
     </div>
   );
