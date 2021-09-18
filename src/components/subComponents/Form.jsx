@@ -12,26 +12,46 @@ const Form = () => {
     console.log("email:", email);
     console.log("password:", password);
 
-    const requestOptions = {
+    // const requestOptions = {
+    //   method: 'POST',
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ "email_phone": email, "password": password , "deviceType": 0,
+    //   "devicToken": "238482"})
+    // };
+
+    //
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      email_phone: email,
+      password: password,
+      deviceType: 0,
+      devicToken: "238482"
+    });
+
+    var requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email, password: password })
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
     };
 
-    await fetch("https://dev-api.youthresourceapp.com/login", requestOptions)
+    fetch("https://dev-api.youthresourceapp.com/login", requestOptions)
       .then((response) => response.json())
-      .then((data) => {
-        msg = data;
-        if (msg.statusCode === 200) {
-          /*as the api not working redirecting to home. */
+      .then((result) => {
+        console.log(result.statusCode);
+
+        if (result.statusCode === 200) {
           history.push("/home");
         } else {
-          alert(msg.message);
+          alert("wrong email or password");
         }
-      });
+      })
+      .catch((error) => console.log("error", error));
 
     console.log(msg);
-    history.push("/home");
+    // history.push("/home");
   };
 
   function formSubmit(e) {
